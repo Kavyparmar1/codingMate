@@ -18,7 +18,7 @@ const Hero = () => {
            </div>
         </div>
         
-          <img alt="pic" src="https://images.ctfassets.net/lzny33ho1g45/3vuLgqcfPig6ArPqs0sVpv/bec8356e301a2a81de9dabe0beb4877f/image13.png" className='w-80 h-70 border-1 -rotate-12 border-black rounded-xl object-contain object-cover'/>
+          <img alt="pic" src="https://images.ctfassets.net/lzny33ho1g45/3vuLgqcfPig6ArPqs0sVpv/bec8356e301a2a81de9dabe0beb4877f/image13.png" className='w-80 h-70 border-1 -rotate-12 border-black rounded-xl  object-cover'/>
     </div>
  <Hero2 />
    </>
