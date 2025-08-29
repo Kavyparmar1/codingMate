@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: hero;
+  src: url('/LINESeedSans_W_Rg.fbf60f45.ttf');
+}
+@font-face {
+  font-family: hero1;
+  src: url('/Ogg-Regular.fd4ce7b4.ttf');
+}
+
+
