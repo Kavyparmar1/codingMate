@@ -1,5 +1,5 @@
 const transporter = require("./email.config.js");
-const { Verification_Email_Template } = require("./emailtemplate.js");
+
 
 //send  mail 
  const sendEmail = async (email,verificationtoken)=>{

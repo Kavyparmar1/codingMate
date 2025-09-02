@@ -21,10 +21,11 @@ const Home = () => {
     
 
   <>
-    <div ref={loading} className='h-screen w-full bg-black '>
+    <div  ref={loading} className='absolute h-screen z-[3] w-full bg-black '>
       <LoadText />
     </div>
-    <div className='h-screen w-full bg-white z-[-9] absolute top-0'>
+    <div  className='h-screen w-full bg-white z-[2]  absolute top-0'>
+         
          <Navbar />
           <Hero />
           
