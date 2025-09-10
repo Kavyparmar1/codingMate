@@ -91,4 +91,53 @@ const transporter = require("./email.config.js");
        log("email not send",error);
    }
 }
-module.exports = { sendEmail , welcomeEmail}
+const complectEMail = async (email,username,task)=>{
+   try {
+            const response = await transporter.sendMail({
+    from: '"from codingMATE" <kavyparmar2005@gmail.com>',
+    to: email,
+    subject: `completed ${task}`,
+    text: `welcome ${username}`, // plain‑text body
+  html:` <div style="font-family: Arial, sans-serif; background: #f9fafb; padding: 40px;">
+    <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+      
+      <h2 style="color: #4CAF50; text-align: center; margin-bottom: 10px;">
+        🎉 Task Completed Successfully!
+      </h2>
+      <p style="text-align: center; font-size: 18px; color: #555; margin-bottom: 30px;">
+        Hi <b>${username}</b>, great job completing your task!
+      </p>
+
+      <p style="font-size: 16px; color: #333; line-height: 1.6;">
+        ✅ You have successfully completed:  
+        <b style="color:#4CAF50;">${task}</b>
+      </p>
+
+      <div style="text-align: center; margin: 30px 0;">
+        <h1
+           style="background: #4CAF50; color: white; padding: 12px 24px; 
+                  border-radius: 8px; font-weight: bold; 
+                  font-size: 16px; display: inline-block;">
+          Keep Going, ${username}!  
+          “Each completed task brings you closer to your goals.” 🚀
+        </h1>
+      </div>
+
+      <p style="font-size: 14px; color: #777; text-align: center; margin-top: 20px;">
+        Keep pushing forward — success is built one task at a time 💡<br>
+        — The CodingMATE Team
+      </p>
+
+    </div>
+  </div>
+`
+
+      , // HTML body
+  });
+  console.log("send mail" , response);
+  
+   } catch (error) {
+       log("email not send",error);
+   }
+}
+module.exports = { sendEmail , welcomeEmail , complectEMail}

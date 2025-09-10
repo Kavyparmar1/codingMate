@@ -1,4 +1,6 @@
+const { complectEMail } = require("../middleware/sendemail")
 const todoModel = require("../model/todo.model")
+const userModel = require("../model/user.model")
 
 async function createTodo(req,res) {
  const {title,description,completed,imp} = req.body
@@ -47,10 +49,15 @@ async function updateTodo(req,res) {
 }
 
 async function deleteTodo(req,res) {
-    
+     const user = req.user
     const {id} = req.params
+  const users = await userModel.findOne(user)
+  
+  
     try {
         const todo = await todoModel.findById(id)
+        
+        
          if (!todo) {
       return res.status(404).json({ message: "Todo not found" });
     }   
@@ -64,6 +71,7 @@ async function deleteTodo(req,res) {
 
     await todoModel.findByIdAndDelete(id) 
      res.json({ message: "Todo deleted successfully" }); 
+    await complectEMail(user.email,user.username,todo.title)
     } catch (error) {
         return res.status(500).json({message:'Internal server error',error:error.message})
     }
